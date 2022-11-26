@@ -5,15 +5,23 @@ This gem is the simple API client for spree platform API.
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add spree_platform_api_client
+```ruby
+bundle add spree_platform_api_client
+```
 
 If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install spree_platform_api_client
+```ruby
+gem install spree_platform_api_client
+```
+    
+Or add this line to your application's Gemfile:
+```ruby
+gem 'spree_platform_api_client'
+```
 
 ## Usage
 
+```ruby
 require 'spree_platform_api_client'
 
 client = SpreePlatformApiClient::Client.new(
@@ -26,10 +34,23 @@ client = SpreePlatformApiClient::Client.new(
 
 response = client.index(:orders, {page:1, per_page: 50})
 response.parse
+```
 
-SpreePlatformApiClient::Client.config.custom_endpoints = {
-  some_endpoint_name: "/api/v2/platform/some_custom_endpoint"
-}
+To add new endpoints:
+```ruby
+SpreePlatformApiClient::Client.config.custom_endpoints = { some_endpoint_name: "/api/v2/platform/some_custom_endpoint", ..... }
+```
+
+SpreePlatformApiClient::Client supports different types of api calls, which names are the same as controllers actions names ( .index, .create, .show, .update, .delete )
+
+Examples:
+```ruby
+client.index(:orders, {})
+client.create(:orders, {body_there})
+client.update(:orders, order_id, {params_there})
+client.show(:orders, order_id, {params})
+client.delete(:orders, order_id)
+```
 
 ## Development
 

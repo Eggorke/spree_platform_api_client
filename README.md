@@ -36,7 +36,7 @@ response = client.index(:orders, {page:1, per_page: 50})
 response.parse
 ```
 
-To add new endpoints:
+To add new endpoints create initializer, or call directly from the executable file:
 ```ruby
 SpreePlatformApiClient::Client.config.custom_endpoints = { some_endpoint_name: "/api/v2/platform/some_custom_endpoint", ..... }
 ```
@@ -51,6 +51,35 @@ client.update(:orders, order_id, {params_there})
 client.show(:orders, order_id, {params})
 client.delete(:orders, order_id)
 ```
+
+List of default endpoints:
+```ruby
+{
+    orders: "#{platform_api_namespace}/orders",
+    addresses: "#{platform_api_namespace}/addresses",
+    adjustments: "#{platform_api_namespace}/adjustments",
+    classifications: "#{platform_api_namespace}/classifications",
+    countries: "#{platform_api_namespace}/countries",
+    cms_pages: "#{platform_api_namespace}/cms_pages",
+    cms_sections: "#{platform_api_namespace}/cms_sections",
+    line_items: "#{platform_api_namespace}/line_items",
+    payments: "#{platform_api_namespace}/payments",
+    payment_methods: "#{platform_api_namespace}/payment_methods",
+    products: "#{platform_api_namespace}/products",
+    promotions: "#{platform_api_namespace}/promotions",
+    shipments: "#{platform_api_namespace}/shipments",
+    shipping_methods: "#{platform_api_namespace}/shipping_methods",
+    states: "#{platform_api_namespace}/states",
+    stock_items: "#{platform_api_namespace}/stock_items",
+    stock_locations: "#{platform_api_namespace}/stock_locations",
+    taxons: "#{platform_api_namespace}/taxons",
+    users: "#{platform_api_namespace}/users",
+    wishlists: "#{platform_api_namespace}/wishlists",
+    wished_items: "#{platform_api_namespace}/wished_items"
+}
+```
+
+platform_api_namespace could be overriden through the config at initializer
 
 ## Development
 

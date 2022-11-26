@@ -79,7 +79,7 @@ List of default endpoints:
 }
 ```
 
-platform_api_namespace could be overriden through the config at initializer
+platform_api_namespace could be overriden through the config at initializer. Default value is "/api/v2/platform"
 
 ## Development
 

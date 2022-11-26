@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = "Simple Spree Platform Api Client"
   spec.description = "This gem allows to make api calls to the spree platform API"
-  spec.homepage = "https://github.com/EgorShalamov/spree_platform_api_client"
+  spec.homepage = "https://github.com/Eggorke/spree_platform_api_client"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
